@@ -12,4 +12,14 @@ for (let index = 0; index < keysList.length; index++) {
   key.onclick = function () {
     playSound(idAudioElement);
   };
+
+  key.onkeydown = function (event) {
+    if (event.code === 'Space' || event.code === 'Enter') {
+      key.classList.add('ativa');
+    }
+  }
+
+  key.onkeyup = function (event) {
+    key.classList.remove('ativa');
+  }
 }
