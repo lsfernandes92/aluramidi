@@ -1,5 +1,15 @@
-function playPom() {
-  document.querySelector('#som_tecla_pom').play();
+function playSound(idElement) {
+  document.querySelector(idElement).play();
 }
 
-document.querySelector('.tecla_pom').onclick = playPom;
+const keysList = document.querySelectorAll('.tecla');
+
+for (let index = 0; index < keysList.length; index++) {
+  const key = keysList[index];
+  const keyClass = key.classList[1];
+  const idAudioElement = `#som_${keyClass}`;
+
+  key.onclick = function () {
+    playSound(idAudioElement);
+  };
+}
