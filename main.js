@@ -1,5 +1,12 @@
 function playSound(idElement) {
-  document.querySelector(idElement).play();
+  const element = document.querySelector(idElement);
+
+  if (element && element.localName === 'audio') {
+    element.play();
+  }
+  else {
+    console.log('Element not found or invalid selector');
+  }
 }
 
 const keysList = document.querySelectorAll('.tecla');
